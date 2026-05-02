@@ -2,12 +2,13 @@ from django.template import Library
 from django.utils.safestring import mark_safe
 
 from ..settings import (
-    get_theme,
-    get_line_numbers,
-    get_copy_to_clipboard,
-    PRISM_VERSION,
     PRISM_PREFIX,
+    PRISM_VERSION,
+    get_copy_to_clipboard,
+    get_line_numbers,
+    get_theme,
 )
+
 
 register = Library()
 
@@ -29,7 +30,7 @@ def line_numbers_js():
             "id": "code-block-line-numbers",
             "url": "//cdnjs.cloudflare.com/ajax/libs/prism/{PRISM_VERSION}/plugins/line-numbers/prism-line-numbers.min.js"
         }}
-        """)
+        """)  # noqa: S308
     else:
         return ""
 
@@ -44,7 +45,7 @@ def copy_to_clipboard_js():
             "id": "code-block-copy-to-clipboard",
             "url": "//cdnjs.cloudflare.com/ajax/libs/prism/{PRISM_VERSION}/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"
         }}
-        """)
+        """)  # noqa: S308
     else:
         return ""
 
@@ -59,7 +60,7 @@ def toolbar_js():
             "id": "code-block-toolbar",
             "url": "//cdnjs.cloudflare.com/ajax/libs/prism/{PRISM_VERSION}/plugins/toolbar/prism-toolbar.min.js"
         }}
-        """)
+        """)  # noqa: S308
     else:
         return ""
 
@@ -93,4 +94,4 @@ def load_prism_css():
             """prism-toolbar.min.css" rel="stylesheet">"""
         )
 
-    return mark_safe(script)
+    return mark_safe(script)  # noqa: S308

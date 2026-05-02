@@ -1,11 +1,12 @@
-import pytest
 from json import dumps
 
 from django.contrib.contenttypes.models import ContentType
+
 from wagtail.models import Page
 
-from tests.models import CodeBlockPage
+import pytest
 
+from tests.models import CodeBlockPage
 
 
 @pytest.fixture
@@ -15,7 +16,7 @@ def test_page(db):
     https://github.com/wagtail/wagtail/blob/main/wagtail/core/migrations/0002_initial_data.py#L12
 
     Then create the test page.
-    """  # noqa
+    """
     page_content_type, created = ContentType.objects.get_or_create(
         model="page", app_label="wagtailcore"
     )

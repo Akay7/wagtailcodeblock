@@ -2,13 +2,13 @@ from django.forms import Media
 from django.utils.functional import cached_property
 from django.utils.translation import gettext_lazy as _
 
+from wagtail.admin.telepath import register
 from wagtail.blocks import (
+    ChoiceBlock,
     StructBlock,
     TextBlock,
-    ChoiceBlock,
 )
 from wagtail.blocks.struct_block import StructBlockAdapter
-from wagtail.admin.telepath import register
 
 from .settings import get_language_choices
 
@@ -28,7 +28,7 @@ class CodeBlock(StructBlock):
             ("xml", "XML"),
         )
 
-        if local_blocks is None:
+        if local_blocks is None:  # noqa: SIM108
             local_blocks = []
         else:
             local_blocks = local_blocks.copy()
