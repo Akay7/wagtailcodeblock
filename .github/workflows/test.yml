@@ -50,7 +50,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install tox coverage
+          python -m pip install tox coverage django-coverage-plugin
 
       - name: Run tox targets for Python ${{ matrix.python }}
         run: |
